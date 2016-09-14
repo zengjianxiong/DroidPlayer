@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#000">
 
-    <tcking.github.com.giraffeplayer.IjkVideoView
+    <com.zeng.droidplayer.droidplayerlibrary.meadia.IjkVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -171,7 +171,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/shape_video_box_buttom_controller_bg"
             android:padding="8dp"
             android:visibility="visible">
 
@@ -231,7 +230,6 @@
         android:id="@+id/app_video_top_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_video_box_top_controller_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

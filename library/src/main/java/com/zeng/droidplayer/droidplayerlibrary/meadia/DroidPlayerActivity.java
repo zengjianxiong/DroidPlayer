@@ -15,9 +15,9 @@ import com.zeng.droidplayer.droidplayerlibrary.R;
 /**
  * Created by tcking on 15/10/27.
  */
-public class GiraffePlayerActivity extends Activity {
+public class DroidPlayerActivity extends Activity {
 
-    GiraffePlayer player;
+    DroidPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +28,11 @@ public class GiraffePlayerActivity extends Activity {
         if (config == null || TextUtils.isEmpty(config.url)) {
             Toast.makeText(this, R.string.giraffe_player_url_empty, Toast.LENGTH_SHORT).show();
         } else {
-            player = new GiraffePlayer(this);
+            player = new DroidPlayer(this);
             player.setTitle(config.title);
             player.setDefaultRetryTime(config.defaultRetryTime);
             player.setFullScreenOnly(config.fullScreenOnly);
-            player.setScaleType(TextUtils.isEmpty(config.scaleType) ? GiraffePlayer.SCALETYPE_FITPARENT : config.scaleType);
+            player.setScaleType(TextUtils.isEmpty(config.scaleType) ? DroidPlayer.SCALETYPE_FITPARENT : config.scaleType);
             player.setTitle(TextUtils.isEmpty(config.title) ? "" : config.title);
             player.setShowNavIcon(config.showNavIcon);
             player.play(config.url);
@@ -78,7 +78,7 @@ public class GiraffePlayerActivity extends Activity {
      * @param url     url,title
      */
     public static void play(Activity context, String... url) {
-        Intent intent = new Intent(context, GiraffePlayerActivity.class);
+        Intent intent = new Intent(context, DroidPlayerActivity.class);
         intent.putExtra("url", url[0]);
         if (url.length > 1) {
             intent.putExtra("title", url[1]);
@@ -123,7 +123,7 @@ public class GiraffePlayerActivity extends Activity {
 
         public void play(String url) {
             this.url = url;
-            Intent intent = new Intent(activity, GiraffePlayerActivity.class);
+            Intent intent = new Intent(activity, DroidPlayerActivity.class);
             intent.putExtra("config", this);
             activity.startActivity(intent);
         }

@@ -1,5 +1,6 @@
 package com.zeng.droidplayer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                VideoActivity.intentTo(MainActivity.this,
+                /*VideoActivity.intentTo(MainActivity.this,
                         "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
-                        "测试");
+                        "测试");*/
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }

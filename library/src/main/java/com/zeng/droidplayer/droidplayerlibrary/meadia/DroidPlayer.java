@@ -25,13 +25,15 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.zeng.droidplayer.droidplayerlibrary.R;
+
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 /**
  * Created by tcking on 15/10/27.
  */
-public class GiraffePlayer {
+public class DroidPlayer {
     /**
      * fitParent:scale the video uniformly (maintain the video's aspect ratio) so that both dimensions (width and height) of the video will be equal to or **less** than the corresponding dimension of the view. like ImageView's `CENTER_INSIDE`.等比缩放,画面填满view。
      */
@@ -282,13 +284,13 @@ public class GiraffePlayer {
         }
     };
 
-    public GiraffePlayer(final Activity activity) {
+    public DroidPlayer(final Activity activity) {
         try {
             IjkMediaPlayer.loadLibrariesOnce(null);
             IjkMediaPlayer.native_profileBegin("libijkplayer.so");
             playerSupport=true;
         } catch (Throwable e) {
-            Log.e("GiraffePlayer", "loadLibraries error", e);
+            Log.e("DroidPlayer", "loadLibraries error", e);
         }
         this.activity=activity;
         screenWidthPixels = activity.getResources().getDisplayMetrics().widthPixels;
@@ -754,7 +756,7 @@ public class GiraffePlayer {
     }
 
     /**
-     * using constants in GiraffePlayer,eg: GiraffePlayer.SCALETYPE_FITPARENT
+     * using constants in DroidPlayer,eg: DroidPlayer.SCALETYPE_FITPARENT
      * @param scaleType
      */
     public void setScaleType(String scaleType) {
@@ -991,7 +993,7 @@ public class GiraffePlayer {
      * seekTo position
      * @param msec  millisecond
      */
-    public GiraffePlayer seekTo(int msec, boolean showControlPanle){
+    public DroidPlayer seekTo(int msec, boolean showControlPanle){
         videoView.seekTo(msec);
         if (showControlPanle) {
             show(defaultTimeout);
@@ -999,7 +1001,7 @@ public class GiraffePlayer {
         return this;
     }
 
-    public GiraffePlayer forward(float percent) {
+    public DroidPlayer forward(float percent) {
         if (isLive || percent>1 || percent<-1) {
             return this;
         }
@@ -1022,7 +1024,7 @@ public class GiraffePlayer {
         return videoView.getDuration();
     }
 
-    public GiraffePlayer playInFullScreen(boolean fullScreen){
+    public DroidPlayer playInFullScreen(boolean fullScreen){
         if (fullScreen) {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             updateFullScreenButton();
@@ -1051,22 +1053,22 @@ public class GiraffePlayer {
         void onInfo(int what, int extra);
     }
 
-    public GiraffePlayer onError(OnErrorListener onErrorListener) {
+    public DroidPlayer onError(OnErrorListener onErrorListener) {
         this.onErrorListener = onErrorListener;
         return this;
     }
 
-    public GiraffePlayer onComplete(Runnable complete) {
+    public DroidPlayer onComplete(Runnable complete) {
         this.oncomplete = complete;
         return this;
     }
 
-    public GiraffePlayer onInfo(OnInfoListener onInfoListener) {
+    public DroidPlayer onInfo(OnInfoListener onInfoListener) {
         this.onInfoListener = onInfoListener;
         return this;
     }
 
-    public GiraffePlayer onControlPanelVisibilityChang(OnControlPanelVisibilityChangeListener listener){
+    public DroidPlayer onControlPanelVisibilityChang(OnControlPanelVisibilityChangeListener listener){
         this.onControlPanelVisibilityChangeListener = listener;
         return this;
     }
@@ -1076,19 +1078,19 @@ public class GiraffePlayer {
      * @param isLive
      * @return
      */
-    public GiraffePlayer live(boolean isLive) {
+    public DroidPlayer live(boolean isLive) {
         this.isLive = isLive;
         return this;
     }
 
-    public GiraffePlayer toggleAspectRatio(){
+    public DroidPlayer toggleAspectRatio(){
         if (videoView != null) {
             videoView.toggleAspectRatio();
         }
         return this;
     }
 
-    public GiraffePlayer onControlPanelVisibilityChange(OnControlPanelVisibilityChangeListener listener){
+    public DroidPlayer onControlPanelVisibilityChange(OnControlPanelVisibilityChangeListener listener){
         this.onControlPanelVisibilityChangeListener = listener;
         return this;
     }
