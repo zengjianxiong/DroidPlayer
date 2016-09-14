@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 VideoActivity.intentTo(MainActivity.this,
-                        "http://7xj2w0.com1.z0.glb.clouddn.com/dasfadf.rmvb?attname=&e=1473827675&token=KgWFStVRHsOrZnitdUL1LWCyRE9QzlziZLAh7Alq:gzb1xyyHeSYBYYSs9Q4IUxvCzUY",
+                        "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
                         "测试");
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
